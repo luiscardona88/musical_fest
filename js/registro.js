@@ -10,6 +10,21 @@ $(document).on("click","#submit",function(event)
     let dir=$("#direccion").val();
     let password=$("#password").val();
     let class_method="nuevoRegistro";
+    let flag_validation=true;
+
+
+
+if($.trim($("textarea").val())=="")flag_validation=false;
+$("input").each(function(index,me)
+{
+if($.trim($(this).val())=="") flag_validation=false;
+});
+
+if(flag_validation==false)
+{
+    alert("***TODOS LOS CAMPOS SON OBLIGATORIOS**");
+    return false;
+}
 
     object_send={"nombre":nombre,"edad":edad,"correo":correo,"direccion":dir,"password":password,"class_method":class_method};
     $.ajax({

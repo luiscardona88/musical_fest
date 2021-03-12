@@ -11,6 +11,8 @@ if($session and $session>=1):
     session_destroy();
     echo "<script>window.location.href='../login.php' </script>";
 endif;
+
+
 $class_method = null;
 
 $nombre = $http_request["nombre"] ?? null;
