@@ -12,8 +12,6 @@ $(document).on("click","#submit",function(event)
     let class_method="nuevoRegistro";
     let flag_validation=true;
 
-
-
 if($.trim($("textarea").val())=="")flag_validation=false;
 $("input").each(function(index,me)
 {
