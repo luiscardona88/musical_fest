@@ -2,12 +2,9 @@
 
 <head>
 <?php require_once("header.php")?>
-
-
 <img src="img/login.png"/>
 <?php require_once("menu.php")?>
 </head>
-
 <body>
 
 <br>
@@ -19,31 +16,16 @@
       </div>
       </div>
       <br>
-      <!--<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>!-->
-
       <div class="form-group row">
       <div class="offset-md-1 col-md-3"> <label for="inputEmail" class="sr-only">Email address</label></div>
      
       <div class="col-md-3"><input type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus=""></div>
       </div>
      
-
-
-
-
       <div class="form-group row">
       <div class="offset-md-1 col-md-3"><label for="inputPassword" class="sr-only">Password</label> </div>
       <div class="col-md-3"> <input type="password" id="password" class="form-control" placeholder="Password" required=""></div>
       </div>
-
-
-
-<!--
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div> !-->
 
 
       <div class="form-group row">
@@ -55,7 +37,6 @@
 
 
     </form>
-
 
 <footer class="">
 <img src="img/login.png"/>

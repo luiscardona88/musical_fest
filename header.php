@@ -11,6 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script src="js/registro.js"> </script>
+<script src="js/libreria_validation.js"> </script>
 <?php
 require_once("modal.php");
 @session_start();

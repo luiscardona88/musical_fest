@@ -12,17 +12,8 @@ $(document).on("click","#submit",function(event)
     let class_method="nuevoRegistro";
     let flag_validation=true;
 
-if($.trim($("textarea").val())=="")flag_validation=false;
-$("input").each(function(index,me)
-{
-if($.trim($(this).val())=="") flag_validation=false;
-});
-
-if(flag_validation==false)
-{
-    alert("***TODOS LOS CAMPOS SON OBLIGATORIOS**");
-    return false;
-}
+    let v= new Validation();
+    if(v.init("TODOS LOS CAMPOS SON OBLIGATORIOS")==false) return false;
 
     object_send={"nombre":nombre,"edad":edad,"correo":correo,"direccion":dir,"password":password,"class_method":class_method};
     $.ajax({
@@ -60,6 +51,9 @@ $(document).on("click","#login",function(event)
     let correo=$("#email").val();
     let password=$("#password").val();
     let class_method="login";
+
+    let v= new Validation();
+    if(v.init("Favor de Introducir Usuario/Contraseña")==false) return false;
 
     object_send={"correo":correo,"password":password,"class_method":class_method};
     $.ajax({
