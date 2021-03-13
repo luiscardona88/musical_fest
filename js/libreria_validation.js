@@ -4,20 +4,24 @@ class Validation
 
     init(mensaje="")
     {
-        this.flag_validation=true
-        if($.trim($("textarea").val())=="")this.flag_validation=false;
+        let flag_validation=true;
+
+        if($("textarea").html() !=undefined  && $.trim($("textarea").val())=="")flag_validation=false;
+
         $("input").each(function(index,me)
         {
-        if($.trim($(this).val())=="") this.flag_validation=false;
+         
+        if($.trim($(this).val())=="") 
+        {
+       
+        flag_validation=false;
+       
+        }
         });
         
+       if(flag_validation==false) alert(mensaje);
+        return flag_validation;
         
-        if(this.flag_validation==false)
-        {
-            alert(mensaje);
-            return false;
-        }
-
     }
 
 
