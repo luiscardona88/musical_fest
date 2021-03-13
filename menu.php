@@ -17,10 +17,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Sobre Nosotros</a>
       </li>
+ <?php if(isset($_SESSION["id_registro"]) and ! empty($_SESSION["id_registro"])):?>
 
       <li class="nav-item">
         <a class="nav-link" href="admin.php">Admin</a>
       </li>
+      <?php endif;?>
     </ul>
     
   </div>
