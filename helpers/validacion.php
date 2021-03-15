@@ -26,6 +26,7 @@ class Validation
 	
 	public static function validEmpty($elements=array())
 	{		
+		
 		for($e=0;$e<count($elements);$e++):
 		     if(empty($elements[$e])==true)return false;
 		endfor;

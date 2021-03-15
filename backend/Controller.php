@@ -56,8 +56,8 @@ if ($_POST and  in_array($class_method, $rutas_posts)) {
 
 
         case "login":
-                 Validation::validEmpty($correo,$direccion);
-				   if(Validation::validEmpty(array($nombre,$edad,$correo,$direccion,$password))==false):
+                
+				   if(Validation::validEmpty(array($correo,$password))==false):
 			echo "NOMBRE/USUARIO VACIOS";
 			  return false;
 			   endif;
