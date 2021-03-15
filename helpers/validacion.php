@@ -2,7 +2,7 @@
 class Validation
 {
 	
-	public static function init_sanitize(...$elements)
+	public static function init_sanitize(&...$elements)
 	{
 	
    for($i=0;$i<count($elements);$i++):
