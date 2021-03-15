@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("Facade.php");
-
+require_once("../helpers/validacion.php");
 $rutas_posts = array("nuevoRegistro", "login", "actualizar_registro");
 $rutas_gets = array("login_detalles","lista_admin");
 $http_request = ($_REQUEST["object_send"]) ?? null;
@@ -20,6 +20,9 @@ $edad = $http_request["edad"] ?? null;
 $correo = $http_request["correo"] ?? null;
 $direccion = $http_request["direccion"] ?? null;
 $password = $http_request["password"] ?? null;
+
+Validation::init_sanitize($nombre,$edad,$correo,$direccion,$password);
+
 $id= $http_request["id"] ?? null;
 $jquery_datable=($_REQUEST["jquery_datable"]) ?? null;
 $facade = null;
@@ -37,21 +40,28 @@ endif;
 if ($_POST and  in_array($class_method, $rutas_posts)) {
 
 
-
     switch ($class_method) {
-
 
         case "nuevoRegistro":
 
+            if(Validation::validEmpty(array($nombre,$edad,$correo,$direccion,$password))==false):
+			echo "ERROR DATOS VACIOS";
+			  return false;
+			endif;
+			
             $parametro_registro = array("nombre" => $nombre, "edad" => $edad, "correo" => $correo, "direccion" => $direccion);
             $parametro_password = array("password" => $password);
             echo $facade->registro_entrada($parametro_registro, $parametro_password);
             break;
 
 
-
         case "login":
-
+                 Validation::validEmpty($correo,$direccion);
+				   if(Validation::validEmpty(array($nombre,$edad,$correo,$direccion,$password))==false):
+			echo "NOMBRE/USUARIO VACIOS";
+			  return false;
+			   endif;
+			   
             $parametro_registro = array("correo" => $correo, "password" => $password);
             $result = $facade->existeRegistro($parametro_registro);
             if(!empty($result)) $_SESSION["id_registro"]=$result;
@@ -81,7 +91,6 @@ if ($_POST and  in_array($class_method, $rutas_posts)) {
             $result = $facade->getRegistro($parametro_registro);
             echo json_encode($result);
             break;
-
 
             case "lista_admin":
               

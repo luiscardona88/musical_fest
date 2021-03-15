@@ -2,8 +2,6 @@
 class Conexion
 {
 
-
-
     private $query;
     private  $conn;
     public function getQuery()
