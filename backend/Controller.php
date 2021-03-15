@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("Facade.php");
+require_once("facade.php");
 require_once("../helpers/validacion.php");
 $rutas_posts = array("nuevoRegistro", "login", "actualizar_registro");
 $rutas_gets = array("login_detalles","lista_admin");

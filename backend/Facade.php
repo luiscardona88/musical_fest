@@ -1,5 +1,5 @@
 <?php
-require_once("RegistroDAO.php");
+require_once("registrodao.php");
 class Facade extends RegistroDAO
 {
 public function __construct()
