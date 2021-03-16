@@ -35,10 +35,13 @@ public function updateRow($param1=array())
     public function registro_entrada($param1=array(),$param2=array())
     {
      
-       
+          //"INSERT INTO tb_registro (nombre,correo,direccion,edad) VALUES (?,?,?,?)"
+         //"INSERT INTO tb_password (id_registro, password) VALUES (?, ?)"
         $affected=0;
         if(count($param1)>0 and count($param2)>0):
-        
+            $this->setQuery("INSERT INTO tb_registro (nombre,correo,direccion,edad) VALUES (?,?,?,?)");
+            $this->setQuery("INSERT INTO tb_password (id_registro, password) VALUES (?, ?)");
+
         $affected+=$this->InitTransac($param1,$param2);
         
         return $affected;
